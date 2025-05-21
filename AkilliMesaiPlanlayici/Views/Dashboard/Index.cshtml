@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Kontrol Paneli";
+    var enCokYapanlar = ViewBag.EnCokYapanlar as List<dynamic> ?? new List<dynamic>();
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Toplam Personel</h5>
+                <p class="card-text display-6">@ViewBag.ToplamPersonel</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Toplam Fazla Mesai (saat)</h5>
+                <p class="card-text display-6">@ViewBag.ToplamSaat</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Onay Bekleyen</h5>
+                <p class="card-text display-6">@ViewBag.BekleyenMesai</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>🔝 En Çok Fazla Mesai Yapan 5 Kişi</h4>
+
+@if (enCokYapanlar.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ad Soyad</th>
+                <th>Toplam Saat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in enCokYapanlar)
+            {
+                <tr>
+                    <td>@item.AdSoyad</td>
+                    <td>@item.ToplamSaat</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">Henüz fazla mesai verisi yok.</p>
+}
+
+<hr />
+
+<a class="btn btn-outline-primary" href="/FazlaMesai">📋 Fazla Mesai Listesi</a>
+<a class="btn btn-outline-success" href="/Rapor/HaftalikFazlaMesai">📊 Haftalık Rapor</a>

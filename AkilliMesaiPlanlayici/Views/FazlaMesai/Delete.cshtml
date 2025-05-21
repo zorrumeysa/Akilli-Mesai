@@ -1,0 +1,16 @@
+﻿@model AkilliMesaiPlanlayici.Models.FazlaMesai
+
+<h2>Fazla Mesai Sil</h2>
+
+<p>Silmek istediğinize emin misiniz?</p>
+
+<p><strong>Personel:</strong> @Model.Personel?.AdSoyad</p>
+<p><strong>Tarih:</strong> @Model.Tarih:dd.MM.yyyy</p>
+<p><strong>Saat:</strong> @Model.SaatSayisi</p>
+<p><strong>Neden:</strong> @Model.Neden</p>
+
+<form asp-action="Delete" asp-route-id="@Model.ID" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index","FazlaMesai")" class="btn btn-secondary">İptal</a>
+</form>

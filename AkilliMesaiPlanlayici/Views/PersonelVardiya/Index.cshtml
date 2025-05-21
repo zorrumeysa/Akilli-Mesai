@@ -1,0 +1,34 @@
+﻿@model List<AkilliMesaiPlanlayici.Models.Raporlar.PersonelVardiyaViewModel>
+
+
+@{
+    ViewData["Title"] = "Personel Vardiya Listesi";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ad Soyad</th>
+            <th>Vardiya</th>
+            <th>Tarih</th>
+            <th>Çalışma Saati</th>
+            <th>Fazla Mesai Saati</th>
+            <th>Fazla Mesai Ücreti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.AdSoyad</td>
+                <td>@p.VardiyaAdi</td>
+                <td>@p.Tarih.ToString("dd.MM.yyyy")</td>
+                <td>@p.CalismaSaati</td>
+                <td>@p.FazlaMesaiSaati</td>
+                <td>@p.FazlaMesaiUcreti.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

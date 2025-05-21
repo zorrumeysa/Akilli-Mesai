@@ -1,0 +1,27 @@
+﻿@model AkilliMesaiPlanlayici.Models.Personel
+@{
+    ViewData["Title"] = "Yeni Personel";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="AdSoyad" class="form-label"></label>
+        <input asp-for="AdSoyad" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="SicilNo" class="form-label"></label>
+        <input asp-for="SicilNo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Birim" class="form-label"></label>
+        <input asp-for="Birim" class="form-control" />
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="Durum" class="form-check-input" />
+        <label asp-for="Durum" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a class="btn btn-secondary" href="/Personel">İptal</a>
+</form>

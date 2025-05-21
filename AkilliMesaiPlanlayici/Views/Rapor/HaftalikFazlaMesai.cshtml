@@ -1,0 +1,27 @@
+﻿@model List<AkilliMesaiPlanlayici.Models.Raporlar.HaftalikFazlaMesaiDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Yıl</th>
+            <th>Hafta</th>
+            <th>Personel</th>
+            <th>Toplam Saat</th>
+            <th>Saatlik Ücret</th>
+            <th>Tutar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Yil</td>
+                <td>@item.Hafta</td>
+                <td>@item.AdSoyad</td>
+                <td>@item.ToplamSaat</td>
+                <td>@item.SaatlikUcret.ToString("C")</td>
+                <td>@item.Tutar.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

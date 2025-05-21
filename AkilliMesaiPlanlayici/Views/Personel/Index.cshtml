@@ -1,0 +1,34 @@
+﻿@model List<AkilliMesaiPlanlayici.Models.Personel>
+@{
+    ViewData["Title"] = "Personel Listesi";
+}
+
+<h2>Personel Listesi</h2>
+<a class="btn btn-primary mb-2" href="/Personel/Create">+ Yeni Personel</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ad Soyad</th>
+            <th>Sicil No</th>
+            <th>Birim</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AdSoyad</td>
+                <td>@item.SicilNo</td>
+                <td>@item.Birim</td>
+                <td>@(item.Durum ? "Aktif" : "Pasif")</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" href="/Personel/Edit/@item.PersonelID">Düzenle</a>
+                    <a class="btn btn-sm btn-danger" href="/Personel/Delete/@item.PersonelID">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

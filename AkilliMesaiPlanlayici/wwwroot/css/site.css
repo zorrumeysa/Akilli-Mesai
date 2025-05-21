@@ -1,0 +1,30 @@
+/* wwwroot/css/site.css */
+
+/* Baþlýk altýndaki buton stili */
+.btn-outline-success {
+    border-width: 2px;
+    font-weight: 600;
+}
+
+/* Tablo baþlýðý koyu zemin */
+.table thead th {
+    background-color: #343a40;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Tablo satýrlarýnda hover efekti */
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Filtre formundaki etiketler ve inputlar */
+form.row .col-auto label {
+    font-weight: 500;
+}
+
+/* Title ve section arasý boþluk */
+h2 {
+    margin-bottom: 1.5rem;
+}

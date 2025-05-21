@@ -1,0 +1,32 @@
+﻿@model List<AkilliMesaiPlanlayici.Models.FazlaMesai>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Personel</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Neden</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Personel?.AdSoyad</td>
+                <td>@item.Tarih.ToString("dd.MM.yyyy")</td>
+                <td>@item.SaatSayisi</td>
+                <td>@item.Neden</td>
+                <td>@(item.OnayDurumu ? "Onaylı" : "Bekliyor")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

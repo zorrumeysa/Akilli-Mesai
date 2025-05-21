@@ -1,0 +1,45 @@
+﻿@model AkilliMesaiPlanlayici.Models.PersonelVardiya
+
+<h2>Vardiya Ata</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Personel</label>
+        <select asp-for="PersonelID" class="form-select" required>
+            <option value="">Seçiniz</option>
+            @foreach (var p in ViewBag.Personeller)
+            {
+                <option value="@p.PersonelID">@p.AdSoyad</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Vardiya</label>
+        <select asp-for="VardiyaID" class="form-select" required>
+            <option value="">Seçiniz</option>
+            @foreach (var v in ViewBag.Vardiyalar)
+            {
+                <option value="@v.VardiyaID">@v.VardiyaAdi (@v.BaslangicSaati - @v.BitisSaati)</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Tarih" class="form-label"></label>
+        <input asp-for="Tarih" type="date" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="GercekBaslangic" class="form-label"></label>
+        <input asp-for="GercekBaslangic" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="GercekBitis" class="form-label"></label>
+        <input asp-for="GercekBitis" type="datetime-local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a href="/PersonelVardiya" class="btn btn-secondary">İptal</a>
+</form>
